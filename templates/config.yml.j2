@@ -2,6 +2,13 @@
 rexray:
   logLevel: {{ rexray_log_level }}
 libstorage:
+{% if rexray_preemptible is defined %}
+integration:
+  volume:
+    operations:
+      mount:
+        preempt: {{ rexray_preemptible }}
+{% endif %} 
   service: {{ rexray_storage_drivers[0] }}
   server:
     services:
