@@ -19,6 +19,8 @@ rexray_storage_drivers: []
 
 # GCE Storage Driver
 #rexray_gce_keyfile: ''
+#rexray_gce_default_disk: ''
+#rexray_gce_tags: ''
 
 # Isilon Storage Driver
 rexray_isilon_endpoint: ''
