@@ -36,15 +36,13 @@ efs:
 {% endif %}
 {% if "gcepd" in rexray_storage_drivers %}
         gcepd:
-{% if rexray_gce_keyfile is defined %}  
+  {% if rexray_gce_keyfile is defined %}  
           keyfile: {{ rexray_gce_keyfile }}
-{% endif %}
-{% if rexray_gce_default_disk is defined %}
+  {% elif rexray_gce_default_disk is defined %}
           defaultDiskType: {{ rexray_gce_default_disk }}
-{% endif %}
-{% if rexray_gce_tags is defined %}  
+  {% elif rexray_gce_tags is defined %}  
           tag: {{ rexray_gce_tags }}
-{% endif %}
+  {% endif %}
 {% endif %}
 {% if "isilon" in rexray_storage_drivers %}
 isilon:

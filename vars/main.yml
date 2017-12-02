@@ -12,6 +12,9 @@ rexray_log_level: warn
 # one of ec2 | gce | isilon | openstack | rackspace | scaleio | virtualbox | vmax | xtremio
 rexray_storage_drivers: []
 
+# whether to enable rexray flexrex volumes for kubernetes
+rexray_flexrex_enabled: true
+
 # AWS EC2 Storage Driver
 #rexray_aws_accesskey: ''
 #rexray_aws_secretkey: ''

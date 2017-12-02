@@ -18,3 +18,24 @@
     name: rexray
     state: started
   when: rexray_service
+
+- name: CoreOS | Add opt-path.sh to profile.d for adding rexray PATH
+  raw: >
+          printf "%s\n%s"
+          "#! /usr/bin/bash"
+          "PATH=\$PATH:{{ bin_dir }}"
+          > /etc/profile.d/opt-path.sh
+
+- name: CoreOS | Change permissions and ownership for opt-path.sh to run as root
+  raw: chmod 0755 /etc/profile.d/opt-path.sh && chown root /etc/profile.d/opt-path.sh
+
+- name: Check for flexrex install     
+  stat: 
+    path: /var/lib/rexray/scripts/flexrex
+  register: flexrex
+
+- name: install flexrex
+  shell: /opt/bin/rexray flexrex install --path /etc/kubernetes/volumeplugins/flexrex
+  when: rexray_flexrex_enabled && not flexrex.stat.exists
+  notify:
+    - restart rexray
