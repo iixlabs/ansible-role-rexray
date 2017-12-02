@@ -36,6 +36,6 @@
 
 - name: install flexrex
   shell: /opt/bin/rexray flexrex install --path /etc/kubernetes/volumeplugins/flexrex
-  when: rexray_flexrex_enabled && not flexrex.stat.exists
+  when: rexray_flexrex_enabled and not flexrex.stat.exists
   notify:
     - restart rexray
