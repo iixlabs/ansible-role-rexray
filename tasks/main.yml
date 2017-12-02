@@ -23,7 +23,7 @@
   raw: >
           printf "%s\n%s"
           "#! /usr/bin/bash"
-          "PATH=\$PATH:{{ bin_dir }}"
+          "PATH=\$PATH:{{ rexray_bin_dir }}"
           > /etc/profile.d/opt-path.sh
 
 - name: CoreOS | Change permissions and ownership for opt-path.sh to run as root

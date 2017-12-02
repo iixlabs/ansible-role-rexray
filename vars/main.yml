@@ -2,6 +2,8 @@
 # channel can be stable | unstable | staged
 rexray_channel: stable
 
+rexray_bin_dir: /opt/bin
+
 # service can be true of false - determines whether to start the rexray daemon
 rexray_service: false
 
