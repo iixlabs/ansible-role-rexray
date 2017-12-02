@@ -3,11 +3,11 @@ rexray:
   logLevel: {{ rexray_log_level }}
 libstorage:
 {% if rexray_preemptible is defined %}
-integration:
-  volume:
-    operations:
-      mount:
-        preempt: {{ rexray_preemptible }}
+  integration:
+    volume:
+      operations:
+        mount:
+          preempt: {{ rexray_preemptible }}
 {% endif %} 
   service: {{ rexray_storage_drivers[0] }}
   server:
@@ -35,7 +35,7 @@ efs:
 {% endif %}
 {% endif %}
 {% if "gcepd" in rexray_storage_drivers %}
-gcepd:
+        gcepd:
 {% if rexray_gce_keyfile is defined %}  keyfile: {{ rexray_gce_keyfile }}
 {% endif %}
 {% if rexray_gce_default_disk is defined %}  defaultDiskType: {{ rexray_gce_default_disk }}
